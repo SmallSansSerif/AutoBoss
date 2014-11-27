@@ -31,7 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\Refs\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\..\Tshock refs\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -41,10 +41,10 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="TerrariaServer">
-      <HintPath>H:\Home\TShock4.2.x\TerrariaServer.exe</HintPath>
+      <HintPath>..\..\..\Tshock refs\TerrariaServer.exe</HintPath>
     </Reference>
     <Reference Include="TShockAPI">
-      <HintPath>H:\Home\TShock4.2.x\ServerPlugins\TShockAPI.dll</HintPath>
+      <HintPath>..\..\..\Tshock refs\TShockAPI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

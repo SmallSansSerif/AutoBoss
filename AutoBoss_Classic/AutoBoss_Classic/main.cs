@@ -9,7 +9,7 @@ using TerrariaApi.Server;
 
 namespace AutoBossSpawner
 {
-    [ApiVersion(1, 14)]
+    [ApiVersion(1, 16)]
     public class AutoBossSpawner : TerrariaPlugin
     {
         private DateTime LastCheck = DateTime.UtcNow;
