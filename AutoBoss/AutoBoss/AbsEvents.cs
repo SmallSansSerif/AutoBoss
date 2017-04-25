@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.Xna.Framework;
 using Terraria;
 using TShockAPI;
 
@@ -35,7 +36,7 @@ namespace AutoBoss
 			foreach (var bossPair in bosses)
 			{
 				var npc = TShock.Utils.GetNPCById(bossPair.Key);
-				AutoBoss.bossCounts.Add(npc.name, bossPair.Value);
+				AutoBoss.bossCounts.Add(npc.FullName, bossPair.Value);
 
 				for (var i = 0; i < bossPair.Value; i++)
 				{
@@ -51,7 +52,7 @@ namespace AutoBoss
 
 						var npcid = NPC.NewNPC(spawnTileX*16, spawnTileY*16, bossPair.Key);
 						// This is for special slimes
-						Main.npc[npcid].SetDefaults(npc.name);
+						Main.npc[npcid].SetDefaults(npc.netID);
 
 						AutoBoss.bossList.Add(npcid, bossPair.Key);
 					}
@@ -85,17 +86,17 @@ namespace AutoBoss
 			{
 				var npc = TShock.Utils.GetNPCById(minion);
 
-				if (!minionCounts.ContainsKey(npc.name))
-					minionCounts.Add(npc.name, 1);
+				if (!minionCounts.ContainsKey(npc.FullName))
+					minionCounts.Add(npc.FullName, 1);
 				else
-					minionCounts[npc.name]++;
+					minionCounts[npc.FullName]++;
 
 				foreach (var region in AutoBoss.ActiveArenas)
 				{
 					var arenaX = region.Area.X + (region.Area.Width/2);
 					var arenaY = region.Area.Y + (region.Area.Height/2);
 
-					TSPlayer.Server.SpawnNPC(minion, npc.name, 1, arenaX, arenaY, 50, 20);
+					TSPlayer.Server.SpawnNPC(minion, npc.FullName, 1, arenaX, arenaY, 50, 20);
 				}
 			}
 			if (!AutoBoss.config.AnnounceMinions) return;
